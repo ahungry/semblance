@@ -9,6 +9,31 @@ As the Prolog community is quite small (and the application end,
 such as SWI-Prolog, or GProlog is as well), the project name seemed
 quite fitting.
 
+# Usage
+
+To begin, clone the repository from git, then change into that
+directory and start your REPL.
+
+Next, before initializing, pull the Djula style template repository
+into your src/vendor/ directory via:
+
+```sh
+git clone https://github.com/ahungry/simple-template.git
+```
+
+Next, consult the "bootstrap_kernel.pro" file, and run 'boot.' in the REPL
+to begin the web server.
+
+At this point, you should be able to start navigating the files and
+see where each goes.
+
+It should be pretty self explanatory in how to organize your files (I
+like the MVC pattern), but you can adjust to your needs.
+
+You may find projects are easier to maintain if you fully qualify your
+library calls by module\_name:function call, rather than including
+use\_module at the top of many files (instead, include it once in bootstrap_kernel.pro).
+
 # Contact
 
 Reach out to me at [the GitHub

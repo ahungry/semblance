@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <h1>{{ title }}</h1>
+    {% each items, item %}
+    <h2>{{ item.title }}</h2>
+    <div class="content">{% unescape item.content %}</div>
+    {% end %}
+  </body>
+</html>
