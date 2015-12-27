@@ -53,6 +53,11 @@ Thanks to Anniepoo for her work on
 collection of useful HTML widgets and add-ons, as well as her Prolog
 web tutorial, which inspired this project.
 
+Thanks to RLA for his work on
+[simple-template](https://github.com/rla/simple-template), which gave
+me a headstart and fork candidate for implementing a Djula like syntax
+for the render call to templates.
+
 # License
 
 AGPLv3 or later
