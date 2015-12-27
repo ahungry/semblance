@@ -5,6 +5,10 @@ creating a Prolog web application.
 
 You can think of it as the prologue to your Prolog web application.
 
+As the Prolog community is quite small (and the application end,
+such as SWI-Prolog, or GProlog is as well), the project name seemed
+quite fitting.
+
 # Contact
 
 Reach out to me at [the GitHub
