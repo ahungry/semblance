@@ -1,5 +1,6 @@
 :- module(h, [
-              render/3
+              render/3,
+              render_classic/3
           ]).
 
 /**  <module> Helpers
@@ -11,6 +12,13 @@ Various helpers to obfuscate away some of the boilerplate
 */
 
 render(_Request, Template, Binds) :-
+    config:c(templateDirectory, TemplateDir),
+    working_directory(_, TemplateDir),
+    format('Content-type: text/html~n~n'),
+    current_output(Out),
+    st_render:st_render_file(Template, Binds, Out, _{frontend: semblance}).
+
+render_classic(_Request, Template, Binds) :-
     config:c(templateDirectory, TemplateDir),
     working_directory(_, TemplateDir),
     format('Content-type: text/html~n~n'),

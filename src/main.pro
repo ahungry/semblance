@@ -1,6 +1,5 @@
 :- module(main, [
               start/0,
-              main/0,
               stop/0
           ]).
 

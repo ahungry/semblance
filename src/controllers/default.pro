@@ -18,22 +18,31 @@ index_page(_Request) :-
             [
                 h1('Welcome to Semblance'),
                 p('You can view a sample template page at'),
-                a('href=/templated.htm', 'templated.htm'),
+                a('href=/templated.htm', 'Template Sample'),
                 p('or'),
-                a('href=/blub.htm', 'blub.htm')
+                a('href=/classic-templated.htm', 'Classic Template Sample'),
+                p('View the project page at:'),
+                a('href=https://github.com/ahungry/semblance', 'https://github.com/ahungry/semblance')
             ]).
+
+:- http_handler(root('classic-templated.htm'), classic_templated_page, [id(classic_templated)]).
+classic_templated_page(Request) :-
+    h:render_classic(Request, render_classic,
+                     _{
+                             title: 'Classic Templated',
+                             items: [
+                                 _{ title: 'Item 1', content: 'Abc 1' },
+                                 _{ title: 'Item 1', content: 'Abc 2' }
+                             ]
+                         }).
 
 :- http_handler(root('templated.htm'), templated_page, [id(templated)]).
 templated_page(Request) :-
-    h:render(Request, my_template,
-                _{
-                        title: 'Templated',
-                        items: [
-                            _{ title: 'Item 1', content: 'Abc 1' },
-                            _{ title: 'Item 1', content: 'Abc 2' }
-                        ]
-                    }).
-
-:- http_handler(root('blub.htm'), blub, [id(blub)]).
-blub(Request) :-
-    h:render(Request, blub, _{ name: 'Your Name' }).
+    h:render(Request, render,
+             _{
+                     title: 'Templated',
+                     items: [
+                         _{ title: 'Item 1', content: 'Abc 1' },
+                         _{ title: 'Item 1', content: 'Abc 2' }
+                     ]
+                 }).
