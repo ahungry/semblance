@@ -9,10 +9,17 @@ As the Prolog community is quite small (and the application end,
 such as SWI-Prolog, or GProlog is as well), the project name seemed
 quite fitting.
 
-Please refer to and understand the license (GNU AGPL) before
+Please refer to and understand the license ([GNU AGPL](https://gnu.org/licenses/agpl.html)) before
 implementing as the base of your own project.
 
-[GNU AGPL](https://gnu.org/licenses/agpl.html)
+GNU AGPL is a copyleft license - similar to using a GPL license in
+distributed software, the GNU AGPL aims to invoke the same freedoms to
+the end user of Software as a Service - the right to receive, analyze,
+and modify the source code responsible for the program/website they
+are using.
+
+As such, you may find this framework unsuitable for a project in which
+you wish to keep your code private/proprietary.
 
 # Usage
 
