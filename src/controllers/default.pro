@@ -55,7 +55,7 @@ index_page(Request) :-
                         ]),
                 i('Don\'t worry, we won\'t track you'),
                 p('You can view a sample template page at'),
-                a('href="/templated.htm"', 'Template Sample'),
+                a('href="/templated.htm"', 'Template Sample (includes useful links to Prolog learning sites)'),
                 p('or'),
                 a('href="/classic-templated.htm"', 'Classic Template Sample'),
                 p('View the project page at:'),
