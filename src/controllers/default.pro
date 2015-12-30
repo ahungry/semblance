@@ -31,20 +31,33 @@ Various helpers to obfuscate away some of the boilerplate
 :- use_module(library(http/http_log)).
 :- use_module(library(http/html_head)).
 :- use_module(library(http/http_files)).
+:- use_module(library(http/http_parameters)).
+:- use_module(library(http/http_wrapper)).
 
 :- http_handler(root(.), redir_to_index, [id(indexroot)]).
 redir_to_index(Request) :- http_redirect(moved_temporary, location_by_id(index), Request).
 
 :- http_handler(root('index.htm'), index_page, [id(index)]).
-index_page(_Request) :-
+index_page(Request) :-
+    http_current_request(Request),
+    http_parameters(Request, [
+                        % Pulling in and assigning the query string hello_name=X if present
+                        hello_name(Name, [ optional(true), default('Anonymous') ])
+                    ]),
     reply_html_page(
             title('Welcome to Semblance'),
             [
-                h1('Welcome to Semblance'),
+                h1(['Welcome to Semblance ', Name]),
+                p('Your name? '),
+                form('action="#" method="get"', [
+                            input('type="text" name="hello_name"'),
+                            input('type="submit"')
+                        ]),
+                i('Don\'t worry, we won\'t track you'),
                 p('You can view a sample template page at'),
-                a('href=/templated.htm', 'Template Sample'),
+                a('href="/templated.htm"', 'Template Sample'),
                 p('or'),
-                a('href=/classic-templated.htm', 'Classic Template Sample'),
+                a('href="/classic-templated.htm"', 'Classic Template Sample'),
                 p('View the project page at:'),
                 a('href=https://github.com/ahungry/semblance', 'https://github.com/ahungry/semblance')
             ]).
