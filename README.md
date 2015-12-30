@@ -9,6 +9,11 @@ As the Prolog community is quite small (and the application end,
 such as SWI-Prolog, or GProlog is as well), the project name seemed
 quite fitting.
 
+Please refer to and understand the license (GNU AGPL) before
+implementing as the base of your own project.
+
+[GNU AGPL](https://gnu.org/licenses/agpl.html)
+
 # Usage
 
 To begin, clone the repository from git, then change into that
@@ -34,30 +39,6 @@ You may find projects are easier to maintain if you fully qualify your
 library calls by module\_name:function call, rather than including
 use\_module at the top of many files (instead, include it once in bootstrap_kernel.pro).
 
-# Contact
-
-Reach out to me at [the GitHub
-page](https://github.com/ahungry/semblance) for more help.
-
-# Soon
-
-Plan to see a tutorial at http://ahungry.com/blog/ that will go over
-the full process, as well as a much more robust initial setup process
-to begin with, including a run once wizard to layout the file
-structure etc.
-
-# Thanks
-
-Thanks to Anniepoo for her work on
-[weblog](https://github.com/Anniepoo/weblog) which aims to be a
-collection of useful HTML widgets and add-ons, as well as her Prolog
-web tutorial, which inspired this project.
-
-Thanks to RLA for his work on
-[simple-template](https://github.com/rla/simple-template), which gave
-me a headstart and fork candidate for implementing a Djula like syntax
-for the render call to templates.
-
 # License
 
-AGPLv3 or later
+GNU AGPL
