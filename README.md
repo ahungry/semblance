@@ -9,11 +9,11 @@ As the Prolog community is quite small (and the application end,
 such as SWI-Prolog, or GProlog is as well), the project name seemed
 quite fitting.
 
-Please refer to and understand the license ([GNU AGPL](https://gnu.org/licenses/agpl.html)) before
+Please refer to and understand the license ([GNU AGPLv3](https://gnu.org/licenses/agpl.html)) before
 implementing as the base of your own project.
 
-GNU AGPL is a copyleft license - similar to using a GPL license in
-distributed software, the GNU AGPL aims to invoke the same freedoms to
+GNU AGPLv3 is a copyleft license - similar to using a GPL license in
+distributed software, the GNU AGPLv3 aims to invoke the same freedoms to
 the end user of Software as a Service - the right to receive, analyze,
 and modify the source code responsible for the program/website they
 are using.
@@ -26,14 +26,14 @@ you wish to keep your code private/proprietary.
 To begin, clone the repository from git, then change into that
 directory and start your REPL.
 
-Next, before initializing, pull the Djula style template repository
+Next, before initializing, pull the Django style template repository
 into your src/vendor/ directory via:
 
 ```sh
 git clone https://github.com/ahungry/simple-template.git
 ```
 
-Next, consult the "bootstrap_kernel.pro" file, and run 'boot.' in the REPL
+Now, consult the "bootstrap_kernel.pro" file, and run 'boot.' in the REPL
 to begin the web server.
 
 At this point, you should be able to start navigating the files and
@@ -48,4 +48,4 @@ use\_module at the top of many files (instead, include it once in bootstrap_kern
 
 # License
 
-GNU AGPL
+GNU AGPLv3
