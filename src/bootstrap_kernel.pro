@@ -30,8 +30,12 @@ Consulting this file will invoke the application.
 
 */
 
+% Ensure that .pro files will be loaded for prolog calls
+% http://www.swi-prolog.org/pldoc/man?predicate=prolog_file_type%2f2
+user:prolog_file_type(pro, prolog).
+
 % Our custom config
-:- ensure_loaded('config.pro').
+:- ensure_loaded(config).
 
 % List the vendor modules we plan to use in one single entry point
 % TODO - See if there is some way to invoke dependency injection
@@ -40,11 +44,11 @@ Consulting this file will invoke the application.
 :- use_module(vendor('simple-template/prolog/st/st_render.pl')).
 
 % Load our custom lib files
-:- use_module(lib('helpers.pro')). % use as h:*
+:- use_module(lib(helpers)). % use as h:*
 
 % Load the main route file
-:- use_module(semblance('main.pro')).
-:- use_module(controller('default.pro')).
+:- use_module(semblance(main)).
+:- use_module(controller(default)).
 
 configDebug :-
     config(templateDirectory, X),
