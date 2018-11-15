@@ -33,9 +33,30 @@ Various helpers to obfuscate away some of the boilerplate
 :- use_module(library(http/http_files)).
 :- use_module(library(http/http_parameters)).
 :- use_module(library(http/http_wrapper)).
+:- use_module(library(http/http_json)).
 
 :- http_handler(root(.), redir_to_index, [id(indexroot)]).
 redir_to_index(Request) :- http_redirect(moved_temporary, location_by_id(index), Request).
+
+% Sample of responding to a GET JSON response
+:- http_handler(root('get.json'), get_json, [id(index)]).
+get_json(Request) :-
+  http_current_request(Request),
+  reply_json([1, 2]).
+
+% Sample of responding to a POST JSON response
+:- http_handler(root('test.json'), test_json, [id(index)]).
+test_json(Request) :-
+  %http_read_json(Request, JSONIn),
+  %json_to_prolog(JSONIn, PrologIn),
+  % Compute
+  %prolog_to_json([1, 2, 3], JSONOut),
+  http_read_json_dict(Request, DictIn),
+  get_dict(a, DictIn, A),
+  get_dict(b, DictIn, B),
+  Sum is A + B,
+  put_dict(sum, DictIn, Sum, DictOut),
+  reply_json(DictOut).
 
 :- http_handler(root('index.htm'), index_page, [id(index)]).
 index_page(Request) :-
